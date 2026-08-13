@@ -1,1 +1,1 @@
-alert("Olá, Mundo!");
+import { Negociacao } from "./models/negociacao.js";
