@@ -1,10 +1,8 @@
 import formatarData from "../utils/formatarData.js";
-export class NegociacoesView {
-    elemento;
-    constructor(seletor) {
-        this.elemento = document.querySelector(seletor);
-    }
+import { ViewTs } from "./view.js";
+export class NegociacoesView extends ViewTs {
     template(model) {
+        //head, body //_> cria/declara o template
         return `
         <table class="table table-hover table-bordered">
             <thead> 
@@ -15,7 +13,9 @@ export class NegociacoesView {
                 </tr>
             </thead>
             <tbody>
-                ${model.lista().map(negociacao => {
+                ${model
+            .lista()
+            .map((negociacao) => {
             return `
                     <tr>
                         <td>${formatarData(negociacao.getData())}</td>
@@ -23,13 +23,15 @@ export class NegociacoesView {
                         <td>${negociacao.getValor()}</td>
                     </tr>
                     `;
-        }).join('')}
+        })
+            .join("")}
             </tbody>
         </table>
         
         `;
     }
     update(model) {
+        //exibe/renderiza o template
         this.elemento.innerHTML = this.template(model);
     }
 }
