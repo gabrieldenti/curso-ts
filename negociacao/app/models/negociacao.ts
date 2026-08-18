@@ -9,19 +9,28 @@ export class Negociacao {
     this.valor = valor;
   }
 
-  getData(): Date {
+  public getData(): Date {
     return this.data;
   }
 
-  getQuantidade(): number {
+  public getQuantidade(): number {
     return this.quantidade;
   }
 
-  getValor(): number {
+  public getValor(): number {
     return this.valor;
   }
 
-  getVolume(): number {
+  public getVolume(): number {
     return this.quantidade * this.valor;
   }
+
+  public static criaNegociacao(dataString: string, quantidadeString: string, valorString: string): Negociacao {
+     return new Negociacao(
+      new Date(dataString.replace(/-/g, ",")),
+      parseInt(quantidadeString),
+      parseFloat(valorString),
+    );
+  }
+
 }

@@ -5,7 +5,4 @@ export class MensagemView extends ViewTs {
             <p class="alert alert-info">${model}</p>
         `;
     }
-    update(model) {
-        this.elemento.innerHTML = this.template(model);
-    }
 }

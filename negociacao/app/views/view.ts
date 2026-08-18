@@ -1,7 +1,13 @@
-export abstract class ViewTs {
-  protected elemento: HTMLElement | null;
+export abstract class ViewTs<T> { //-> generics é um tipo de dado que pode trabalhar com varios tipos e ele so recebe o tipo de dado que for passado para ele quando é instanciada
+  private elemento: HTMLElement | null;
 
   constructor(seletor: string) {
     this.elemento = document.querySelector(seletor);
+  }
+
+  protected abstract template(model: T): string; //cria o template
+
+  public update(model: T): void{ //renderiza o template 
+    this.elemento!.innerHTML = this.template(model);
   }
 }

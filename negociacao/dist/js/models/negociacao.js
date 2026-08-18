@@ -19,4 +19,7 @@ export class Negociacao {
     getVolume() {
         return this.quantidade * this.valor;
     }
+    static criaNegociacao(dataString, quantidadeString, valorString) {
+        return new Negociacao(new Date(dataString.replace(/-/g, ",")), parseInt(quantidadeString), parseFloat(valorString));
+    }
 }

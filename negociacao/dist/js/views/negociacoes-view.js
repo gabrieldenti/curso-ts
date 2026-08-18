@@ -30,8 +30,4 @@ export class NegociacoesView extends ViewTs {
         
         `;
     }
-    update(model) {
-        //exibe/renderiza o template
-        this.elemento.innerHTML = this.template(model);
-    }
 }
