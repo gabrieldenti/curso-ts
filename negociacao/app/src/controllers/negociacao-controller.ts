@@ -11,11 +11,12 @@ export class NegociacaoController {
   private negociacoes: Negociacoes = new Negociacoes();
   private negociacoesView: NegociacoesView = new NegociacoesView(
     "#negociacoes-view",
+    true,
   );
   private mensagemView: MensagemView = new MensagemView("#mensagem-view");
 
   constructor() {
-    this.InputData = document.getElementById("data") as HTMLInputElement;
+    this.InputData = document.getElementById("data") as HTMLInputElement; // o as explicito o tipo para o compilador
     this.InputQuantidade = document.getElementById(
       "quantidade",
     ) as HTMLInputElement;
@@ -29,13 +30,18 @@ export class NegociacaoController {
       this.InputQuantidade.value,
       this.InputValor.value,
     );
-    if(negociacao.getData().getDay() > diasDaSemana.DOMINGO && negociacao.getData().getDay() < diasDaSemana.SABADO){
-        this.negociacoes.adiciona(negociacao);
-        this.mensagemView.update("Negociação adicionada com sucesso!");
-        this.limparFormulario();
-        this.negociacoesView.update(this.negociacoes); 
-    }else{
-        this.mensagemView.update("Negociações só podem ser adicionadas em dias úteis!");
+    if (
+      negociacao.getData().getDay() > diasDaSemana.DOMINGO &&
+      negociacao.getData().getDay() < diasDaSemana.SABADO
+    ) {
+      this.negociacoes.adiciona(negociacao);
+      this.mensagemView.update("Negociação adicionada com sucesso!");
+      this.limparFormulario();
+      this.negociacoesView.update(this.negociacoes);
+    } else {
+      this.mensagemView.update(
+        "Negociações só podem ser adicionadas em dias úteis!",
+      );
     }
   }
 

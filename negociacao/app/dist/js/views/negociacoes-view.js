@@ -2,7 +2,6 @@ import formatarData from "../utils/formatarData.js";
 import { ViewTs } from "./view.js";
 export class NegociacoesView extends ViewTs {
     template(model) {
-        //head, body //_> cria/declara o template
         return `
         <table class="table table-hover table-bordered">
             <thead> 

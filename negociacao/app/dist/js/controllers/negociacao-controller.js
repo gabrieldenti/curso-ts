@@ -8,7 +8,7 @@ export class NegociacaoController {
     InputQuantidade;
     InputValor;
     negociacoes = new Negociacoes();
-    negociacoesView = new NegociacoesView("#negociacoes-view");
+    negociacoesView = new NegociacoesView("#negociacoes-view", true);
     mensagemView = new MensagemView("#mensagem-view");
     constructor() {
         this.InputData = document.getElementById("data");
@@ -18,7 +18,8 @@ export class NegociacaoController {
     }
     adiciona() {
         const negociacao = Negociacao.criaNegociacao(this.InputData.value, this.InputQuantidade.value, this.InputValor.value);
-        if (negociacao.getData().getDay() > diasDaSemana.DOMINGO && negociacao.getData().getDay() < diasDaSemana.SABADO) {
+        if (negociacao.getData().getDay() > diasDaSemana.DOMINGO &&
+            negociacao.getData().getDay() < diasDaSemana.SABADO) {
             this.negociacoes.adiciona(negociacao);
             this.mensagemView.update("Negociação adicionada com sucesso!");
             this.limparFormulario();

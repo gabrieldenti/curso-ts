@@ -1,14 +1,16 @@
 {
     "compilerOptions": {
-        "outDir": "dist/js", //onde os arquivos compilados serão gerados
-        "rootDir": "./app", // de onde os arquivos ts serão considerados para compilar
+        "outDir": "app/dist/js", //onde os arquivos compilados serão gerados
+        "rootDir": "./app/src", // de onde os arquivos ts serão considerados para compilar
         "target": "es2025", //versão do javascript que será gerada
         "noEmitOnError": true, // não gera o arquivo js caso tenha algum erro de compilação
-        "noImplicitAny": true // não permite que variáveis sejam do tipo any, ou seja, sem tipo definido
+        "noImplicitAny": true, // não permite que variáveis sejam do tipo any, ou seja, sem tipo definido
+        "removeComments": true, // remove os comentarios na hora da compilação 
+        "strictNullChecks": true
 
     },
 
     "include": [ // inclue os arquivos que serão compilados
-        "app/**/*"
+        "app/src/**/*"
     ]
 }
