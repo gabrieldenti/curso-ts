@@ -6,7 +6,8 @@
         "noEmitOnError": true, // não gera o arquivo js caso tenha algum erro de compilação
         "noImplicitAny": true, // não permite que variáveis sejam do tipo any, ou seja, sem tipo definido
         "removeComments": true, // remove os comentarios na hora da compilação 
-        "strictNullChecks": true
+        "strictNullChecks": true, //obrigado a descobrir se é null ou não props e params
+        "experimentalDecorators": true //possibilita implementação de decorators
 
     },
 
