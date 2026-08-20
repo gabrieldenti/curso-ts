@@ -6,7 +6,7 @@ export function domInjector(seletor: string){ //decorator de propriedades
             return elemento;
         }
         
-        Object.defineProperty(target, propertyKey, {
+        Object.defineProperty(target, propertyKey, { //-> no prototype da classe(target) pegue a propriedade propetryKey e redefina o comportamento dela, toda vez que alguem chamaela executa o getter.
             get: getter
         })
     }
