@@ -1,8 +1,15 @@
 export function domInjector(seletor: string){ //decorator de propriedades
     return function(target: any, propertyKey: string){ 
 
+
+        let elemento: HTMLElement | null;
+
         const getter = function(){
-            const elemento = document.querySelector(seletor);
+            if(!elemento){
+                
+                elemento = document.querySelector(seletor);
+            }
+
             return elemento;
         }
         

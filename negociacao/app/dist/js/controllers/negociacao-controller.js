@@ -15,7 +15,7 @@ export class NegociacaoController {
     InputQuantidade;
     InputValor;
     negociacoes = new Negociacoes();
-    negociacoesView = new NegociacoesView("#negociacoes-view", true);
+    negociacoesView = new NegociacoesView("#negociacoes-view");
     mensagemView = new MensagemView("#mensagem-view");
     constructor() {
         this.InputData = document.getElementById("data");
@@ -35,6 +35,9 @@ export class NegociacaoController {
         else {
             this.mensagemView.update("Negociações só podem ser adicionadas em dias úteis!");
         }
+    }
+    importarDados() {
+        fetch('http:');
     }
     limparFormulario() {
         this.InputData.value = "";

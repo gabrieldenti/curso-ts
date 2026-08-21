@@ -1,4 +1,4 @@
-function escape(){
+export function escape(){
     return function(target: any, propetryKey: string, descriptor: PropertyDescriptor){
         
         const metodoOriginal = descriptor.value;

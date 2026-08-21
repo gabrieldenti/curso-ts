@@ -11,9 +11,7 @@ export class NegociacaoController {
   private InputValor: HTMLInputElement;
   private negociacoes: Negociacoes = new Negociacoes();
   private negociacoesView: NegociacoesView = new NegociacoesView(
-    "#negociacoes-view",
-    true,
-  );
+    "#negociacoes-view",);
   private mensagemView: MensagemView = new MensagemView("#mensagem-view");
 
   constructor() {
@@ -45,6 +43,10 @@ export class NegociacaoController {
         "Negociações só podem ser adicionadas em dias úteis!",
       );
     }
+  }
+
+  public importarDados(): void{
+      fetch('http:')
   }
 
   private limparFormulario(): void {

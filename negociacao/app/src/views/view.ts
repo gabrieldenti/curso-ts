@@ -1,3 +1,4 @@
+import { escape } from "../decorators/escape.js";
 import { logarTempoDeExecucao } from "../decorators/logar-tempo-de-execucao.js";
 
 export abstract class ViewTs<T> {
@@ -5,23 +6,16 @@ export abstract class ViewTs<T> {
   private elemento: HTMLElement | null;
   private escapar: boolean = false;
 
-  constructor(seletor: string, escapar?: boolean) {
+  constructor(seletor: string) {
     this.elemento = document.querySelector(seletor);
-    if (escapar) {
-      this.escapar = escapar;
-    }
   }
-
+  
   protected abstract template(model: T): string; //cria o template
 
   @logarTempoDeExecucao(true)
   public update(model: T): void {
     //renderiza o template
-
     let template = this.template(model);
-    if (this.escapar) {
-      template = template.replace(/<script>[\s\S]*?<\/script>/, ""); //-> remove o script do template
-    }
     this.elemento!.innerHTML = template;
   }
 }

@@ -1,8 +1,11 @@
+import { escape } from "../decorators/escape.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import formatarData from "../utils/formatarData.js";
 import { ViewTs } from "./view.js";
 
 export class NegociacoesView extends ViewTs<Negociacoes> {
+
+   @escape()
   protected override template(model: Negociacoes): string {
     //head, body //_> cria/declara o template
     return `
