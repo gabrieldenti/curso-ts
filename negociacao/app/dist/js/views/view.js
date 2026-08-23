@@ -19,3 +19,4 @@ export class ViewTs {
 __decorate([
     logarTempoDeExecucao(true)
 ], ViewTs.prototype, "update", null);
+//# sourceMappingURL=view.js.map

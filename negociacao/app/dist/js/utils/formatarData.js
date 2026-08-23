@@ -5,3 +5,4 @@ export default function formatarData(data) {
         "day": "2-digit",
     });
 }
+//# sourceMappingURL=formatarData.js.map

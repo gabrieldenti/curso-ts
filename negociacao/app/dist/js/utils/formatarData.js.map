@@ -1,0 +1,1 @@
+{"version":3,"file":"formatarData.js","sourceRoot":"","sources":["../../../src/utils/formatarData.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,UAAU,YAAY,CAAC,IAAU;IAC3C,OAAO,IAAI,CAAC,kBAAkB,CAAC,OAAO,EAAE;QACpC,MAAM,EAAE,SAAS;QACjB,OAAO,EAAE,SAAS;QAClB,KAAK,EAAE,SAAS;KACnB,CAAC,CAAA;AACN,CAAC"}

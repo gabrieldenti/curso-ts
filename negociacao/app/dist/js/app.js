@@ -1,11 +1,12 @@
 import { NegociacaoController } from "./controllers/negociacao-controller.js";
 const controller = new NegociacaoController();
-const form = document.querySelector('.form');
-const botaoImportar = document.querySelector('#botao-importar');
-form.addEventListener('submit', event => {
+const form = document.querySelector(".form");
+const botaoImportar = document.querySelector("#botao-importa");
+form.addEventListener("submit", (event) => {
     event.preventDefault();
     controller.adiciona();
 });
-botaoImportar.addEventListener('click', () => {
+botaoImportar.addEventListener("click", () => {
     controller.importarDados();
 });
+//# sourceMappingURL=app.js.map

@@ -4,6 +4,7 @@ import { MensagemView } from "../views/mensagem-view.js";
 import { NegociacoesView } from "../views/negociacoes-view.js";
 import { diasDaSemana } from "../enums/diasDaSemana.js";
 import { logarTempoDeExecucao } from "../decorators/logar-tempo-de-execucao.js";
+import { NegociacoesService } from "../services/negocicoes-service.js";
 
 export class NegociacaoController {
   private InputData: HTMLInputElement;
@@ -11,8 +12,10 @@ export class NegociacaoController {
   private InputValor: HTMLInputElement;
   private negociacoes: Negociacoes = new Negociacoes();
   private negociacoesView: NegociacoesView = new NegociacoesView(
-    "#negociacoes-view",);
+    "#negociacoes-view",
+  );
   private mensagemView: MensagemView = new MensagemView("#mensagem-view");
+  private negociacoesService = new NegociacoesService();
 
   constructor() {
     this.InputData = document.getElementById("data") as HTMLInputElement; // o 'as' explicito o tipo para o compilador
@@ -45,8 +48,23 @@ export class NegociacaoController {
     }
   }
 
-  public importarDados(): void{
-      fetch('http:')
+  public importarDados(): void {
+    this.negociacoesService
+      .obterNegociacoes()
+      .then((negociacoesHoje) => {
+        return negociacoesHoje.filter((negociacoesDeHoje) => {
+          !this.negociacoes
+            .lista()
+            .some((negociacao) => negociacao.ehIgual(negociacoesDeHoje));
+        });
+      })
+      .then((negociacoesHoje) => {
+        for (let negociacao of negociacoesHoje) {
+          //adiciona o array de negociacoes
+          this.negociacoes.adiciona(negociacao);
+        }
+        this.negociacoesView.update(this.negociacoes);
+      });
   }
 
   private limparFormulario(): void {

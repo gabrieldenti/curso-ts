@@ -7,3 +7,4 @@ export class Negociacoes {
         return this.negociacoes;
     }
 }
+//# sourceMappingURL=negociacoes.js.map

@@ -10,6 +10,7 @@ import { MensagemView } from "../views/mensagem-view.js";
 import { NegociacoesView } from "../views/negociacoes-view.js";
 import { diasDaSemana } from "../enums/diasDaSemana.js";
 import { logarTempoDeExecucao } from "../decorators/logar-tempo-de-execucao.js";
+import { NegociacoesService } from "../services/negocicoes-service.js";
 export class NegociacaoController {
     InputData;
     InputQuantidade;
@@ -17,6 +18,7 @@ export class NegociacaoController {
     negociacoes = new Negociacoes();
     negociacoesView = new NegociacoesView("#negociacoes-view");
     mensagemView = new MensagemView("#mensagem-view");
+    negociacoesService = new NegociacoesService();
     constructor() {
         this.InputData = document.getElementById("data");
         this.InputQuantidade = document.getElementById("quantidade");
@@ -37,7 +39,21 @@ export class NegociacaoController {
         }
     }
     importarDados() {
-        fetch('http:');
+        this.negociacoesService
+            .obterNegociacoes()
+            .then((negociacoesHoje) => {
+            return negociacoesHoje.filter((negociacoesDeHoje) => {
+                !this.negociacoes
+                    .lista()
+                    .some((negociacao) => negociacao.ehIgual(negociacoesDeHoje));
+            });
+        })
+            .then((negociacoesHoje) => {
+            for (let negociacao of negociacoesHoje) {
+                this.negociacoes.adiciona(negociacao);
+            }
+            this.negociacoesView.update(this.negociacoes);
+        });
     }
     limparFormulario() {
         this.InputData.value = "";
@@ -49,3 +65,4 @@ export class NegociacaoController {
 __decorate([
     logarTempoDeExecucao()
 ], NegociacaoController.prototype, "adiciona", null);
+//# sourceMappingURL=negociacao-controller.js.map
