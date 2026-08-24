@@ -8,7 +8,7 @@
         "removeComments": true, // remove os comentarios na hora da compilação 
         "strictNullChecks": true, //obrigado a descobrir se é null ou não props e params
         "experimentalDecorators": true, //possibilita implementação de decorators
-        "sourceMap": true //permite debuggar nos arquivos ts
+        "sourceMap": true //permite debuggar nos arquivos ts, faz o mapeamento para os arquivos ts
 
     },
 

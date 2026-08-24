@@ -7,7 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { logarTempoDeExecucao } from "../decorators/logar-tempo-de-execucao.js";
 export class ViewTs {
     elemento;
-    escapar = false;
     constructor(seletor) {
         this.elemento = document.querySelector(seletor);
     }

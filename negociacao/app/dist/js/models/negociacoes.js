@@ -6,5 +6,11 @@ export class Negociacoes {
     lista() {
         return this.negociacoes;
     }
+    paraTexto() {
+        return JSON.stringify(this.negociacoes);
+    }
+    ehIgual(objeto) {
+        throw new Error("Method not implemented.");
+    }
 }
 //# sourceMappingURL=negociacoes.js.map

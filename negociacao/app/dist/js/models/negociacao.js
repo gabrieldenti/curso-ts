@@ -20,9 +20,16 @@ export class Negociacao {
         return this.quantidade * this.valor;
     }
     ehIgual(negociacao) {
-        return (this.data.getDate() == negociacao.data.getDate() &&
-            this.data.getMonth() == negociacao.data.getMonth() &&
-            this.data.getFullYear() == negociacao.data.getFullYear());
+        return (this.data.getDate() === negociacao.data.getDate() &&
+            this.data.getMonth() === negociacao.data.getMonth() &&
+            this.data.getFullYear() === negociacao.data.getFullYear());
+    }
+    paraTexto() {
+        return `
+        Data:${this.data}
+        Quantidade:${this.quantidade}
+        Valor:${this.valor}
+      `;
     }
     static criaNegociacao(dataString, quantidadeString, valorString) {
         return new Negociacao(new Date(dataString.replace(/-/g, ",")), parseInt(quantidadeString), parseFloat(valorString));

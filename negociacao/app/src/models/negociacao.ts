@@ -1,4 +1,7 @@
-export class Negociacao {
+import { Modelo } from "../interfaces/modelo.js";
+
+
+export class Negociacao implements Modelo<Negociacao> {
   private data: Date;
   private quantidade: number;
   private valor: number;
@@ -7,6 +10,7 @@ export class Negociacao {
     this.data = data;
     this.quantidade = quantidade;
     this.valor = valor;
+
   }
 
   public getData(): Date {
@@ -27,10 +31,18 @@ export class Negociacao {
 
   public ehIgual(negociacao: Negociacao): boolean {
     return (
-      this.data.getDate() == negociacao.data.getDate() &&
-      this.data.getMonth() == negociacao.data.getMonth() &&
-      this.data.getFullYear() == negociacao.data.getFullYear()
+      this.data.getDate() === negociacao.data.getDate() &&
+      this.data.getMonth() === negociacao.data.getMonth() &&
+      this.data.getFullYear() === negociacao.data.getFullYear()
     );
+  }
+
+  public paraTexto(): string {
+    return `
+        Data:${this.data}
+        Quantidade:${this.quantidade}
+        Valor:${this.valor}
+      `
   }
 
   public static criaNegociacao(

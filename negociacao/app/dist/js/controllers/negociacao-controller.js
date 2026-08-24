@@ -41,14 +41,14 @@ export class NegociacaoController {
     importarDados() {
         this.negociacoesService
             .obterNegociacoes()
-            .then((negociacoesHoje) => {
-            return negociacoesHoje.filter((negociacoesDeHoje) => {
-                !this.negociacoes
+            .then(negociacoesHoje => {
+            return negociacoesHoje.filter(negociacaoHoje => {
+                return !this.negociacoes
                     .lista()
-                    .some((negociacao) => negociacao.ehIgual(negociacoesDeHoje));
+                    .some(negociacao => negociacao.ehIgual(negociacaoHoje));
             });
         })
-            .then((negociacoesHoje) => {
+            .then(negociacoesHoje => {
             for (let negociacao of negociacoesHoje) {
                 this.negociacoes.adiciona(negociacao);
             }
