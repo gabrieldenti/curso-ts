@@ -1,0 +1,22 @@
+{
+  "name": "projeto_bytebank",
+  "version": "1.0.0",
+  "description": "bytebank, banco virtual",
+  "main": "main.js",
+  "scripts": {
+    "tsc": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieldenti/typescript-temporario.git"
+  },
+  "author": "Gabriel Denti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrieldenti/typescript-temporario/issues"
+  },
+  "homepage": "https://github.com/gabrieldenti/typescript-temporario#readme",
+  "dependencies": {
+    "typescript": "^5.1.3"
+  }
+}

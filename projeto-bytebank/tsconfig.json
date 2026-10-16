@@ -1,0 +1,12 @@
+{
+    "compilerOptions": { // Compiler options for TypeScript
+        "target": "esnext",
+        "rootDir": "./src", // rootdir é a pasta onde estão os arquivos ts
+        "outDir": "./dist/js", // ele gera o arquivo js dentro da pasta dist/js
+        "noEmitOnError": true, // não gera o arquivo js se tiver algum erro de compilação
+        "experimentalDecorators": true //informa que usa decorators 
+    },
+    "include": [ // include faz com que o compilador inclua os arquivos ts dentro da pasta src
+        "./src/**/*"
+    ]
+}
